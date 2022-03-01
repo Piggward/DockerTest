@@ -5,6 +5,6 @@ jobs:
     - stage: build docker image
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker build -t myportfolio:$TRAVIS_BUILD_NUMBER .
+        - docker build -t myportfolio:$TRAVIS_BUILD_NUMBER
         - docker tag myportfolio:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/myportfolio
         - docker push $DOCKER_USERNAME/myrepo:latest
